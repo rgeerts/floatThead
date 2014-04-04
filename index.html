@@ -84,13 +84,13 @@ $table.floatThead({
             <strong>Note:</strong>
             All the options which are <b>function</b>s take a single argument: <code>$table</code> - the table who's header is being floated.<br/>ex: <code>function($table){ ... }</code>
         </div>
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped table-hover">
             <thead>
             <tr>
                 <th style="width: 100px;">Name</th>
-                <th style="width: 100px;">type</th>
-                <th style="width: 50px;">default</th>
-                <th>description</th>
+                <th style="width: 70px;">Type</th>
+                <th style="width: 100px;">Default</th>
+                <th>Description</th>
             </tr>
             </thead>
             <tbody>
@@ -99,6 +99,11 @@ $table.floatThead({
                 <td>function</td>
                 <td>null</td>
                 <td>Defines a container element inside of which the table scrolls vertically and/or horizontally. <small>usually a wrapping div</small></td>
+            </tr><tr>
+                <td>scrollContainer</td>
+                <td>string</td>
+                <td>null</td>
+                <td>You can also provide a selector to use instead of the function. It will be used as <code>$table.closest(selector)</code> to find the scrollContainer</td>
             </tr><tr>
                 <td>scrollingTop</td>
                 <td>number or function</td>
@@ -144,14 +149,17 @@ $table.floatThead({
                 <td>boolean</td>
                 <td>false</td>
                 <td>Point out various possible issues via <code>console.log</code> if it is available</td>
-            </tr>
-            <tr>
+            </tr><tr>
                 <td>getSizingRow</td>
                 <td>function</td>
                 <td>undefined</td>
-                <td><p class="text-error">Used by IE Only</p> If your table's first visible row (<code>tbody tr:visible:first td</code>) contains <code>td</code> elements with <code>colspan</code>s, then you need to return another set of <code>td</code>s which have no colspans. In other words the selector should return the same number of TDs as columns in your table. Here is <a href="{{ site.base_url }}/examples/row-groups/">an example</a></td>
-            </tr>
-            <tr>
+                <td><p class="text-error">IE Only</p> If your table's first visible row (<code>tbody tr:visible:first td</code>) contains <code>td</code> elements with <code>colspan</code>s, then you need to return another set of <code>td</code>s which have no colspans. In other words the selector should return the same number of TDs as columns in your table. Here is <a href="{{ site.base_url }}/examples/row-groups/">an example</a></td>
+            </tr><tr>
+                <td>getSizingRow</td>
+                <td>string</td>
+                <td>undefined</td>
+                <td><p class="text-error">IE Only</p> Same as above except as a selector string. Will be used as <code>$table.find(selector)</code> to find the sizing row within current table</td>
+            </tr><tr>
                 <td>copyTableClass</td>
                 <td>boolean</td>
                 <td>true</td>

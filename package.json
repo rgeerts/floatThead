@@ -26,6 +26,7 @@
     "grunt-text-replace": "~0.3.10",
     "grunt-bg-shell": "~2.3.1",
     "cheerio": "~0.13.1",
-    "request": "~2.34.0"
+    "request": "~2.34.0",
+    "grunt-contrib-coffee": "~0.10.1"
   }
 }

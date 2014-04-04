@@ -33,6 +33,16 @@ module.exports = function(grunt) {
       build: ['build']
     },
 
+    coffee: {
+      compile: {
+        files: {
+          'build/jquery.floatThead.dataAPI.js': 'jquery.floatThead.dataAPI.coffee'
+        }
+      }
+    },
+
+
+
     concat: {
       options: {
         stripBanners: false
@@ -40,7 +50,8 @@ module.exports = function(grunt) {
       full: {
         src: [
           'jquery.floatThead.js',
-          'jquery.floatThead._.js'
+          'jquery.floatThead._.js',
+          'build/jquery.floatThead.dataAPI.js'
         ],
         dest: 'build/jquery.floatThead.js'
       }
@@ -85,7 +96,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			lib: {
-				files: ['./lib/**/*', './*.js', '**/*.less'],
+				files: ['./lib/**/*', './*.js', './*.coffee', '**/*.less'],
 				tasks: ['build', 'jekyll']
 			},
 			html: {
@@ -135,6 +146,7 @@ issue: "+issue+"\n\
     });
   });
 
+	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-jekyll');
@@ -144,7 +156,7 @@ issue: "+issue+"\n\
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('build', ['concat', 'copy',  'uglify']);
+  grunt.registerTask('build', ['coffee', 'concat', 'copy',  'uglify']);
 
 	// For development - run a server and watch for changes
 	grunt.registerTask('sandbox', ['clean:dist', 'build', 'replace:local', 'bgShell:jekyll', 'watch']);
