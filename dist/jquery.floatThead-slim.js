@@ -181,23 +181,11 @@
       var scrollbarOffset = {vertical: 0, horizontal: 0};
       var scWidth = scrollbarWidth();
       var lastColumnCount = 0; //used by columnNum()
-      var $scrollContainer;
-      if(util.isFunction(opts.scrollContainer)){
-        $scrollContainer = opts.scrollContainer($table) || $([]); //guard against returned nulls
-      } else if(util.isString(opts.scrollContainer)){
-        $scrollContainer = $table.closest(opts.scrollContainer);
-      } else {
-        $scrollContainer = $([]);
-      }
-      if(util.isString(opts.getSizingRow)){
-        var sizingRowSelector = opts.getSizingRow;
-        opts.getSizingRow = function($table){
-          return $table.find(sizingRowSelector);
-        }
-      }
+      var $scrollContainer = opts.scrollContainer($table) || $([]); //guard against returned nulls
+
       var useAbsolutePositioning = opts.useAbsolutePositioning;
       if(useAbsolutePositioning == null){ //defaults: locked=true, !locked=false
-        useAbsolutePositioning = $scrollContainer.length;
+        useAbsolutePositioning = opts.scrollContainer($table).length;
       }
       var $caption = $table.find("caption");
       var haveCaption = $caption.length == 1;
