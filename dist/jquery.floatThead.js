@@ -181,11 +181,23 @@
       var scrollbarOffset = {vertical: 0, horizontal: 0};
       var scWidth = scrollbarWidth();
       var lastColumnCount = 0; //used by columnNum()
-      var $scrollContainer = opts.scrollContainer($table) || $([]); //guard against returned nulls
-
+      var $scrollContainer;
+      if(util.isFunction(opts.scrollContainer)){
+        $scrollContainer = opts.scrollContainer($table) || $([]); //guard against returned nulls
+      } else if(util.isString(opts.scrollContainer)){
+        $scrollContainer = $table.closest(opts.scrollContainer);
+      } else {
+        $scrollContainer = $([]);
+      }
+      if(util.isString(opts.getSizingRow)){
+        var sizingRowSelector = opts.getSizingRow;
+        opts.getSizingRow = function($table){
+          return $table.find(sizingRowSelector);
+        }
+      }
       var useAbsolutePositioning = opts.useAbsolutePositioning;
       if(useAbsolutePositioning == null){ //defaults: locked=true, !locked=false
-        useAbsolutePositioning = opts.scrollContainer($table).length;
+        useAbsolutePositioning = $scrollContainer.length;
       }
       var $caption = $table.find("caption");
       var haveCaption = $caption.length == 1;
@@ -752,3 +764,77 @@
   })();
 })();
 
+
+(function() {
+  var BOUND_KEY, SELECTOR, dataDefaults, getInit, getOpts;
+
+  SELECTOR = '[data-provide="floatThead"]';
+
+  BOUND_KEY = 'floatThead-dataAPI-bound';
+
+  dataDefaults = {
+    lazy: true
+  };
+
+  $.each($.floatThead.defaults, function(key, val) {
+    return dataDefaults[key.toLowerCase()] = {
+      key: key,
+      val: val
+    };
+  });
+
+  getOpts = function($el) {
+    var key, ret, val, _i, _len, _ref;
+    ret = {};
+    _ref = $el.data();
+    for (val = _i = 0, _len = _ref.length; _i < _len; val = ++_i) {
+      key = _ref[val];
+      key = key.toLowerCase().substring("floatthead".length);
+      if (key in dataDefaults) {
+        ret[dataDefaults[key].key] = val || dataDefaults[key];
+      }
+    }
+    return ret;
+  };
+
+  getInit = function($target) {
+    var $table, fn, opts;
+    if ($target.data(BOUND_KEY)) {
+      return null;
+    }
+    opts = getOpts($target);
+    if ($target.is("table")) {
+      $table = $target;
+    } else {
+      $table = $target.find("table");
+      opts = $.extend({}, opts, getOpts($table));
+      if (opts.scrollContainer === true) {
+        opts.scrollContainer = function() {
+          return $target;
+        };
+      }
+    }
+    fn = function() {
+      $target.data(BOUND_KEY, true);
+      return $table.floatThead(opts);
+    };
+    fn.opts = opts;
+    return fn;
+  };
+
+  $(document).on("mouseover.floatTHead", SELECTOR + "[data-floatThead-lazy]", function(e) {
+    var _base;
+    return typeof (_base = getInit($(e.target))) === "function" ? _base() : void 0;
+  });
+
+  $(function() {
+    return $(SELECTOR).each(function() {
+      var init;
+      init = getInit($(this));
+      if (!(!init || init.opts.lazy)) {
+        return init();
+      }
+    });
+  });
+
+}).call(this);
