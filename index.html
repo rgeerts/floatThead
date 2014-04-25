@@ -1,62 +1,62 @@
 ---
-layout: default
+layout: bootstrap3
 slug: home
 base_url: "."
 ---
 <script type='text/javascript' src="{{ page.base_url }}/lib/moment.js"></script>
 
 <div class='row'>
-    <div class='span12' id='intro'>
+    <div class='col-md-9'>
         <div class='intro-container'>
             <div class='row'>
-                <div class='span6'>
-                    <h1>Intro</h1>
+
+                <div class='col-sm-12'>
+                    <div class='row'>
+                        <div class='col-sm-6'>
+                            <h1 id='intro'>Intro</h1>
 
 
-                    <code>jquery.floatThead</code> is a floating/locked/sticky table header plugin that requires no special CSS and supports window and overflow scrolling.
-                    <h4>Features:</h4>
-                    <ul>
-                        <li>Floats the table header - so that the user can always see it</li>
-                        <li>Supports tables with inner scroll bars, or window scrolling</li>
-                        <li>Horizontal or vertical scrolling</li>
-                        <li>Doesn't clone the <code>thead</code> - so your events stay bound</li>
-                        <li>Doesn't mess with your styles</li>
-                        <li>Works on any table</li>
-                        <li>Requires no special css</li>
-                        <li>Works with <a href="http://datatables.net" target="_blank">datatables</a> out of the box</li>
-                    </ul>
-                    <h4>Requirements:</h4>
-                    <ul>
-                        <li>jQuery 1.8.x or better (code is 1.9+ compliant)<small> <strong>or</strong> jQuery 1.7.x + <a href="http://jqueryui.com/resources/download/jquery-ui-1.8.24.zip" target='_blank'>jQuery UI core</a></small></li>
-                        <li>Internet Exploder 8 - 11, FireFox 10+ or Chrome15+</li>
-                        <li><small>Add this meta tag into your header to placate IE: <code>&lt;meta http-equiv="X-UA-Compatible" content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" /&gt;</code></small></li>
-                    </ul>
+                            <code>jquery.floatThead</code> is a floating/locked/sticky table header plugin that requires no special CSS and supports window and overflow scrolling.
+                            <h4>Features:</h4>
+                            <ul>
+                                <li>Floats the table header - so that the user can always see it</li>
+                                <li>Supports tables with inner scroll bars, or window scrolling</li>
+                                <li>Horizontal or vertical scrolling</li>
+                                <li>Doesn't clone the <code>thead</code> - so your events stay bound</li>
+                                <li>Doesn't mess with your styles</li>
+                                <li>Works on any table</li>
+                                <li>Requires no special css</li>
+                                <li>Works with <a href="http://datatables.net" target="_blank">datatables</a> out of the box</li>
+                            </ul>
+                            <h4>Requirements:</h4>
+                            <ul>
+                                <li>jQuery 1.8.x or better (code is 1.9+ compliant)<small> <strong>or</strong> jQuery 1.7.x + <a href="http://jqueryui.com/resources/download/jquery-ui-1.8.24.zip" target='_blank'>jQuery UI core</a></small></li>
+                                <li>Internet Exploder 8 - 11, FireFox 10+ or Chrome15+</li>
+                                <li><small>Add this meta tag into your header to placate IE: <code>&lt;meta http-equiv="X-UA-Compatible"<br/> content="IE=10; IE=9; IE=8; IE=7; IE=EDGE" /&gt;</code></small></li>
+                            </ul>
 
-                </div>
-                <div class='span5 offset1'>
-                    <div class='main-demo'>
-                        <div class='cta'>
-                            <h1>Demo</h1>
-                            <button class="btn btn-success run-main-demo" type="button">Run floatThead <i class='icon-play icon-white'></i></button><br/>
                         </div>
-                        <br/>
-                        <div class='wrapper small'>
-                            <table class="table demo0 large template table-bordered table-striped">
-                                <thead> <tr> <th><a href="#" id='demoHeader1'>Header 1</a></th> <th><a href="#" id='demoHeader2'>Header 2</a></th> <th><a href="#" id='demoHeader3'>Header...3</a></th> </tr> </thead>
-                                <tbody> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr></tbody>
-                            </table>
+                        <div class='col-md-6'>
+                            <div class='main-demo'>
+                                <div class='cta'>
+                                    <h1>Demo</h1>
+                                    <button class="btn btn-success run-main-demo" type="button">Run floatThead <i class='icon-play icon-white'></i></button><br/>
+                                </div>
+                                <br/>
+                                <div class='wrapper'>
+                                    <table class="table demo0 large template table-bordered table-striped">
+                                        <thead> <tr> <th><a href="#" id='demoHeader1'>Header 1</a></th> <th><a href="#" id='demoHeader2'>Header 2</a></th> <th><a href="#" id='demoHeader3'>Header...3</a></th> </tr> </thead>
+                                        <tbody> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr> <tr> <td>And Repeat 1</td> <td>And Repeat 2</td> <td>And Repeat 3</td> </tr> <tr> <td>Cell Content 1</td> <td>Cell Content 2</td> <td>Cell Content 3</td> </tr> <tr> <td>More Cell Content 1</td> <td>More Cell Content 2</td> <td>More Cell Content 3</td> </tr> <tr> <td>Even More Cell Content 1</td> <td>Even More Cell Content 2</td> <td>Even More Cell Content 3</td> </tr></tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <br/>
-    </div>
-</div>
-<div class='row'>
-    <div class='span12' id='usage'>
-        <h1>Usage</h1>
+        <h1 id='usage'>Usage</h1>
         There are 2 ways you can initialize the table:<br/><br/>
         <ul>
             <li><b>Overflow scrolling</b><br/><small>The table is inside of a container with overflow:auto</small></li>
@@ -74,12 +74,8 @@ $table.floatThead({
 	}
 });
 {% endhighlight %}
-    </div>
-</div>
-<br/>
-<div class='row'>
-    <div class='span12' id='options'>
-        <h1>Options</h1>
+
+        <h1 id='options'>Options</h1>
         <div class="alert">
             <strong>Note:</strong>
             All the options which are <b>function</b>s take a single argument: <code>$table</code> - the table who's header is being floated.<br/>ex: <code>function($table){ ... }</code>
@@ -167,11 +163,8 @@ $table.floatThead({
             </tr>
             </tbody>
         </table>
-    </div>
-</div>
-<div class='row'>
-    <div class='span12' id='methods'>
-        <h1>Methods</h1>
+
+        <h1 id='methods'>Methods</h1>
         <h4><code>.floatThead('destroy')</code></h4>
         <p>        Removes the widget from the table
 {% highlight js %}
@@ -200,11 +193,8 @@ $table.floatThead('reflow');
             Useful because you cannot simply select <code>thead</code> if the table's header is currently being floated.<br/>
             For more info on why you may want this <a href="{{ site.base_url }}/examples/hidden-columns/">read through this example</a>
         </p>
-    </div>
-</div>
-<div class='row'>
-    <div class='span12' id='events'>
-        <h1>Events</h1>
+
+        <h1 id='events'>Events</h1>
         <h4><code>$table.trigger('reflow')</code></h4>
         Given a table element $table that has been widgetized, a reflow event causes the header to realign itself to the correct position. This event must be triggered if the DOM is modifed in such a way that the widgetized table's location changes.
 {% highlight js %}
@@ -215,14 +205,10 @@ $table.css('marginTop', 100);
 //cause the floated header to be properly positioned again:
 $table.trigger('reflow');
 {% endhighlight %}
-    </div>
-</div>
-<br/>
-<div class='row'>
-    <div class='span12' id='examples'>
-        <h1>Examples</h1>
+
+        <h1  id='examples'>Examples</h1>
         <div class='row'>
-            <div class='span6'>
+            <div class='col-sm-6'>
                 <h2>Overflow Scrolling</h2>
                 <div class='desc'>
                     Overflow scrolling is used when the table is inside of a container smaller than itself with overflow:auto.<br/><br/>
@@ -249,7 +235,7 @@ $('a#change-dom').click(function(){ //click to remove
                     <div class='gimme-table' data-cls='demo1'></div>
                 </div>
             </div>
-            <div class='span6'>
+            <div class='col-sm-6'>
                 <h2>Window Scrolling</h2>
                 <div class='desc'>
                     Window scrolling is used when you have a large table that takes up the whole screen.<br/>
@@ -266,22 +252,15 @@ $('table.demo2').floatThead({
                 <div class='gimme-table' data-cls='demo2'></div>
             </div>
         </div>
-    </div>
-</div>
 
-<div class='row'>
-    <div class='span6' id='issues'>
-        <h1>Open Issues</h1>
+        <h1 id='issues'>Open Issues</h1>
         Issues are pulled from <a href='https://github.com/mkoryak/floatThead/issues?state=open'>github</a><br/><br/>
         <ul>
             <li>There are no issues! Yey!</li>
         </ul>
-    </div>
-</div>
-<br/><br/>
-<div class='row'>
-    <div class='span12' id='download'>
-        <h1>Download</h1>
+
+
+        <h1 id='download'>Download</h1>
 
         <p class="lead">Download Latest Release<span id="release-info"></span>:</p>
 
@@ -311,19 +290,19 @@ bower install floatThead
     </div>
 </div>
 <div class='row'>
-    <div class="span6">
+    <div class="col-sm-6">
         <div class="alert">
             To report issues, visit the project's <a href='https://github.com/mkoryak/floatThead/issues?state=open'>github issues page</a>.
         </div>
     </div>
-    <div class="span6">
+    <div class="col-sm-6">
         <div class="alert alert-success">
             Or everything works great? Please &nbsp;<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=SDJJ42BTC46LY&lc=US&item_name=floatThead&currency_code=USD&bn=PP%2dDonationsBF%3adonate%2dcoffee%2epng%3aNonHosted"><img src="http://programmingdrunk.com/donate-coffee.png"></a>
         </div>
     </div>
 </div>
 <div class='row'>
-    <div class='span12' id='license'>
+    <div class='col-md-9' id='license'>
         <h1>License</h1>
         Code is licensed under <a href="http://opensource.org/licenses/MIT">MIT</a>, the docs under
         <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International</a>
@@ -416,8 +395,6 @@ bower install floatThead
                 $button.html("Run floatThead  <i class='icon-play icon-white'></i>").removeClass('btn-danger').addClass('btn-success');
             } else {
                 $demoTable.floatThead({
-                    //the pageTop is a global function i have here, it takes care of making the table float under my floated nav
-                    scrollingTop: pageTop,
                     scrollContainer: function($table){
                         return $table.closest('.wrapper');
                     },
@@ -441,8 +418,6 @@ bower install floatThead
 
         var $demo1 = $('table.demo1');
         $demo1.floatThead({
-            //the pageTop is a global function i have here, it takes care of making the table float under my floated nav
-            scrollingTop: pageTop,
             scrollContainer: function($table){
                 return $table.closest('.wrapper');
             }
@@ -452,8 +427,6 @@ bower install floatThead
             $demo1.floatThead('reflow');
         });
         $('table.demo2, #options table').floatThead({
-            //the pageTop is a global function i have here, it takes care of making the table float under my floated nav
-            scrollingTop: pageTop,
             useAbsolutePositioning: false
         });
     });
