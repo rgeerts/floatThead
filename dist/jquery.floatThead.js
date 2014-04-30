@@ -783,11 +783,11 @@
   });
 
   getOpts = function($el) {
-    var key, ret, val, _i, _len, _ref;
+    var key, ret, val, _ref;
     ret = {};
     _ref = $el.data();
-    for (val = _i = 0, _len = _ref.length; _i < _len; val = ++_i) {
-      key = _ref[val];
+    for (key in _ref) {
+      val = _ref[key];
       key = key.toLowerCase().substring("floatthead".length);
       if (key in dataDefaults) {
         ret[dataDefaults[key].key] = val || dataDefaults[key];

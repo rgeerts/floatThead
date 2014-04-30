@@ -17,7 +17,7 @@ $.each($.floatThead.defaults, (key, val) ->
 
 getOpts = ($el) ->
   ret = {}
-  for key, val in $el.data()
+  for key, val of $el.data()
     key = key.toLowerCase().substring("floatthead".length)
     ret[dataDefaults[key].key] = (val or dataDefaults[key]) if key of dataDefaults
   return ret
