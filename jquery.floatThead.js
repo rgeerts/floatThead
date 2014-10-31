@@ -19,7 +19,7 @@
    */
   $.floatThead = $.floatThead || {};
   $.floatThead.defaults = {
-    cellTag: null, // DEPRECATED - use headerCellSelector instead
+    cellTag: 'th:visible',
     headerCellSelector: 'tr:first>th:visible', //thead cells are this.
     zIndex: 1001, //zindex of the floating thead (actually a container div)
     debounceResizeMs: 10,
@@ -212,13 +212,17 @@
       var $floatContainer = $('<div style="overflow: hidden;"></div>');
       var floatTableHidden = false; //this happens when the table is hidden and we do magic when making it visible
       var $newHeader = $("<thead/>");
-      var $sizerRow = $('<tr class="size-row"/>');
-      var $sizerCells = $([]);
+
+      var $sizerRows = $([]);
       var $tableCells = $([]); //used for sizing - either $sizerCells or $tableColGroup cols. $tableColGroup cols are only created in chrome for borderCollapse:collapse because of a chrome bug.
       var $headerCells = $([]);
       var $fthCells = $([]); //created elements
 
-      $newHeader.append($sizerRow);
+      $header.find('tr').each(function(){
+          var $row = $('<tr class="size-row"/>');
+          $newHeader.append($row);
+      });
+      $sizerRows = $newHeader.find('tr');
       $table.prepend($tableColGroup);
       if(isChrome){
         $fthGrp.append($fthRow);
@@ -291,11 +295,12 @@
 
       function setHeaderHeight(){
         var headerHeight = 0;
-        $header.find("tr:visible").each(function(){
-          headerHeight += $(this).outerHeight(true);
+        $header.find("tr:visible").each(function(rowIndex){
+          headerHeight = $(this).outerHeight(true);
+          $row = $($sizerRows[rowIndex]);
+          $row.outerHeight(headerHeight);
+          $row.find('th').outerHeight(headerHeight);
         });
-        $sizerRow.outerHeight(headerHeight);
-        $sizerCells.outerHeight(headerHeight);
       }
 
 
@@ -343,15 +348,24 @@
         }
         if(count != lastColumnCount){
           lastColumnCount = count;
-          var cells = [], cols = [], psuedo = [];
-          for(var x = 0; x < count; x++){
-            cells.push('<th class="floatThead-col"/>');
-            cols.push('<col/>');
-            psuedo.push("<fthtd style='display:table-cell;height:0;width:auto;'/>");
-          }
+          var cols = [], psuedo = [];
+          $header.find('tr').each(function(rowIndex, row){
+              var cells = [];
+              var $row = $(row);
+
+              $row.find(opts.cellTag).each(function(){
+                  var $this = $(this);
+                  if(rowIndex === 0){
+                      cols.push('<col/>');
+                      psuedo.push("<fthtd style='display:table-cell;height:0;width:auto;'/>");
+                  }
+                  cells.push('<th class="floatThead-col" colspan="' +($this.attr('colspan') || 1) +'">' + $this.text() +'</th>');
+              });
+              cells = cells.join('');
+              $($sizerRows[rowIndex]).html(cells);
+          });
 
           cols = cols.join('');
-          cells = cells.join('');
 
           if(isChrome){
             psuedo = psuedo.join('');
@@ -359,8 +373,6 @@
             $fthCells = $fthRow.find('fthtd');
           }
 
-          $sizerRow.html(cells);
-          $sizerCells = $sizerRow.find("th");
           if(!existingColGroup){
             $tableColGroup.html(cols);
           }
